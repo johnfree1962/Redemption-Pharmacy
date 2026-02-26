@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redemption Pharmacy - Your Trusted Healthcare Partner</title>
+  <meta name="description" content="Redemption Pharmacy - Trusted, licensed pharmacy offering quality medicines and healthcare products. Fast delivery, professional service.">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="index.html" class="navbar-brand">
+        <div class="navbar-brand-icon">Rx</div>
+        Redemption Pharmacy
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="pharmacy.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a class="btn btn-primary btn-small" href="javascript:void(0)" onclick="openCart()">🛒 Cart</a></li>
+      </ul>
+      <div class="hamburger" onclick="toggleNav()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Your Health Is Our Mission</h1>
+      <p>Quality medicines, expert advice, and fast delivery. Trusted by thousands of families.</p>
+      <div class="hero-buttons">
+        <a href="pharmacy.html" class="btn btn-primary" style="font-size: 1.1rem; padding: 0.75rem 2rem;">Browse Medicines</a>
+        <a href="#how-it-works" class="btn btn-outline" style="font-size: 1.1rem; padding: 0.75rem 2rem;">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section" id="how-it-works">
+    <div class="container">
+      <div class="section-title">
+        <h2>How It Works</h2>
+        <p>Get quality medicines in just a few simple steps</p>
+      </div>
+      <div class="row">
+        <div class="card" style="text-align: center;">
+          <div style="font-size: 3rem; color: var(--primary); margin: 1rem 0;">🔍</div>
+          <h3>1. Browse</h3>
+          <p>Explore our wide selection of medicines, supplements, and health products from trusted brands.</p>
+        </div>
+        <div class="card" style="text-align: center;">
+          <div style="font-size: 3rem; color: var(--secondary); margin: 1rem 0;">🛒</div>
+          <h3>2. Order</h3>
+          <p>Add items to your cart and proceed to checkout with our secure payment system.</p>
+        </div>
+        <div class="card" style="text-align: center;">
+          <div style="font-size: 3rem; color: var(--info); margin: 1rem 0;">📦</div>
+          <h3>3. Delivery</h3>
+          <p>We deliver discreetly and promptly. Track your order every step of the way.</p>
+        </div>
+        <div class="card" style="text-align: center;">
+          <div style="font-size: 3rem; color: var(--success); margin: 1rem 0;">💬</div>
+          <h3>4. Support</h3>
+          <p>Our pharmacists are available for questions. Your health matters to us.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PRODUCTS -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="section-title">
+        <h2>Featured Products</h2>
+        <p>Bestsellers and customer favorites</p>
+      </div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-image" style="background: linear-gradient(135deg, #f5e6d3, #f0dcc8); font-size: 3rem;">💊</div>
+          <div class="product-body">
+            <span class="product-category">Pain Relief</span>
+            <h3 class="product-name">Paracetamol 500mg</h3>
+            <p class="product-description">Effective pain relief and fever reduction. Trusted for over 50 years.</p>
+            <div class="product-footer">
+              <span class="product-price">$2.50</span>
+              <span class="product-stock in-stock">In Stock</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image" style="background: linear-gradient(135deg, #e6f4ff, #d1e8ff); font-size: 3rem;">💉</div>
+          <div class="product-body">
+            <span class="product-category">Antibiotics</span>
+            <h3 class="product-name">Amoxicillin 250mg</h3>
+            <p class="product-description">Broad-spectrum antibiotic. US FDA approved and clinically tested.</p>
+            <div class="product-footer">
+              <span class="product-price">$5.00</span>
+              <span class="product-stock in-stock">In Stock</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image" style="background: linear-gradient(135deg, #fff4e6, #ffe8cc); font-size: 3rem;">🧴</div>
+          <div class="product-body">
+            <span class="product-category">Cold & Cough</span>
+            <h3 class="product-name">Cough Syrup 100ml</h3>
+            <p class="product-description">Relief for dry cough and throat irritation. Pleasant cherry flavor.</p>
+            <div class="product-footer">
+              <span class="product-price">$3.75</span>
+              <span class="product-stock in-stock">In Stock</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image" style="background: linear-gradient(135deg, #f0e6ff, #e6d1ff); font-size: 3rem;">🌿</div>
+          <div class="product-body">
+            <span class="product-category">Supplements</span>
+            <h3 class="product-name">Multivitamin Tablets</h3>
+            <p class="product-description">Complete daily nutrition. 13 essential vitamins and minerals.</p>
+            <div class="product-footer">
+              <span class="product-price">$4.25</span>
+              <span class="product-stock in-stock">In Stock</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 3rem;">
+        <a href="pharmacy.html" class="btn btn-primary" style="padding: 0.75rem 2rem;">View All Products</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Why Choose Redemption Pharmacy</h2>
+        <p>Everything you need for better health</p>
+      </div>
+      <div class="row">
+        <div class="card">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;">✅</div>
+          <h3>Licensed & Certified</h3>
+          <p>Fully licensed pharmacy operating under strict healthcare regulations and quality standards nationally recognized.</p>
+        </div>
+        <div class="card">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;">🏥</div>
+          <h3>Expert Pharmacists</h3>
+          <p>Our team of certified pharmacists is available 24/7 to answer your health questions and provide personalized advice.</p>
+        </div>
+        <div class="card">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;">⚡</div>
+          <h3>Fast Delivery</h3>
+          <p>Same-day delivery in selected areas. Free shipping on orders over $50. Discreet and professional packaging.</p>
+        </div>
+        <div class="card">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;">🔒</div>
+          <h3>100% Secure</h3>
+          <p>Your privacy is guaranteed. Encrypted transactions, confidential packaging, and strict data protection.</p>
+        </div>
+        <div class="card">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;">📦</div>
+          <h3>Authentic Products</h3>
+          <p>All medicines sourced directly from manufacturers. No counterfeits. Every product verified for authenticity.</p>
+        </div>
+        <div class="card">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;">💰</div>
+          <h3>Competitive Prices</h3>
+          <p>Best prices in the market. Regular discounts and loyalty rewards for our valued customers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="section-title">
+        <h2>What Our Customers Say</h2>
+        <p>Real experiences from real people</p>
+      </div>
+      <div class="row">
+        <div class="testimonial">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Fast delivery and excellent customer service. Redemption Pharmacy is my go-to place for all my healthcare needs. Highly recommended!"</p>
+          <p class="testimonial-author">Maria Johnson</p>
+          <p class="testimonial-title">Verified Customer</p>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Great selection of medicines and supplements. The pharmacists answered all my questions professionally. Very satisfied!"</p>
+          <p class="testimonial-author">David Chen</p>
+          <p class="testimonial-title">Verified Customer</p>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Impressed by the competitive prices and prompt delivery. This is exactly what I was looking for. 10/10 would recommend."</p>
+          <p class="testimonial-author">Sarah Williams</p>
+          <p class="testimonial-title">Verified Customer</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="section" style="background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; text-align: center;">
+    <div class="container">
+      <h2 style="color: white; margin-bottom: 1rem;">Ready to Get Started?</h2>
+      <p style="color: rgba(255, 255, 255, 0.95); font-size: 1.1rem; margin-bottom: 2rem;">Join thousands of satisfied customers. Browse our complete pharmacy catalog today.</p>
+      <a href="pharmacy.html" class="btn btn-primary" style="padding: 0.75rem 2rem; font-size: 1.1rem;">Shop Now</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>About Redemption</h4>
+        <p>Redemption Pharmacy is committed to providing quality medicines and healthcare products with professional service.</p>
+        <p class="license-info">📋 License #: RXP-2024-001<br>Registered with National Health Authority</p>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="pharmacy.html">Shop Medicines</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="pharmacy.html?cat=pain-relief">Pain Relief</a></li>
+          <li><a href="pharmacy.html?cat=cold-cough">Cold & Cough</a></li>
+          <li><a href="pharmacy.html?cat=antibiotics">Antibiotics</a></li>
+          <li><a href="pharmacy.html?cat=supplements">Supplements</a></li>
+          <li><a href="pharmacy.html?cat=skincare">Skincare</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contact Info</h4>
+        <p>📞 Phone: +231-XXX-XXXX</p>
+        <p>📧 Email: support@redemptionpharmacy.lr</p>
+        <p>📍 Location: Monrovia, Liberia</p>
+        <p>⏰ Hours: Mon-Fri 8:00-18:00, Sat 9:00-17:00</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Redemption Pharmacy. All rights reserved.</p>
+      <p>This website is for informational purposes only. Always consult with a licensed pharmacist or healthcare provider.</p>
+    </div>
+  </footer>
+
+  <!-- CART SIDEBAR -->
+  <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+  <aside id="cart" class="cart-sidebar">
+    <div class="cart-header">
+      <h3>Shopping Cart</h3>
+      <button onclick="closeCart()">×</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty">Your cart is empty</div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span class="cart-total-label">Total:</span>
+        <span class="cart-total-amount">$0.00</span>
+      </div>
+      <a href="checkout.html" class="btn btn-primary" onclick="if(getCartCount() === 0) { alert('Add items to cart first'); return false; }">Proceed to Checkout</a>
+      <button class="btn btn-outline small" onclick="clearCart()" style="width: 100%; margin-top: 0.5rem;">Clear Cart</button>
+    </div>
+  </aside>
+
+  <script>
+    // Mobile menu toggle
+    function toggleNav() {
+      const navLinks = document.getElementById('navLinks');
+      navLinks.classList.toggle('active');
+    }
+
+    // Close mobile nav on link click
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('navLinks').classList.remove('active');
+      });
+    });
+
+    // Cart state
+    const CART_KEY = 'pharmacyCart-v2';
+    let cart = JSON.parse(localStorage.getItem(CART_KEY) || '{}');
+
+    function saveCart() {
+      localStorage.setItem(CART_KEY, JSON.stringify(cart));
+      renderCart();
+    }
+
+    function getCartCount() {
+      return Object.values(cart).reduce((sum, item) => sum + item.qty, 0);
+    }
+
+    function getCartTotal() {
+      return Object.values(cart).reduce((sum, item) => sum + (item.price * item.qty), 0).toFixed(2);
+    }
+
+    function openCart() {
+      document.getElementById('cart').classList.add('open');
+      document.getElementById('cartOverlay').classList.add('active');
+    }
+
+    function closeCart() {
+      document.getElementById('cart').classList.remove('open');
+      document.getElementById('cartOverlay').classList.remove('active');
+    }
+
+    function addToCart(id, name, price) {
+      if (cart[id]) {
+        cart[id].qty += 1;
+      } else {
+        cart[id] = { name, price: Number(price), qty: 1 };
+      }
+      saveCart();
+      openCart();
+      showNotification(name + ' added to cart');
+    }
+
+    function removeFromCart(id) {
+      delete cart[id];
+      saveCart();
+    }
+
+    function updateQty(id, qty) {
+      if (qty < 1) {
+        removeFromCart(id);
+      } else {
+        cart[id].qty = qty;
+        saveCart();
+      }
+    }
+
+    function clearCart() {
+      if (confirm('Clear entire cart?')) {
+        cart = {};
+        saveCart();
+      }
+    }
+
+    function renderCart() {
+      const cartItems = document.getElementById('cartItems');
+      const cartTotal = document.querySelector('.cart-total-amount');
+      const overlay = document.getElementById('cartOverlay');
+
+      if (Object.keys(cart).length === 0) {
+        cartItems.innerHTML = '<div class="cart-empty">Your cart is empty</div>';
+        overlay.classList.remove('active');
+        return;
+      }
+
+      let html = '';
+      Object.entries(cart).forEach(([id, item]) => {
+        const itemTotal = (item.price * item.qty).toFixed(2);
+        html += `
+          <div class="cart-item">
+            <div class="cart-item-info">
+              <div class="cart-item-name">${item.name}</div>
+              <div class="cart-item-price">$${item.price.toFixed(2)} each</div>
+              <div class="cart-item-qty">
+                <button onclick="updateQty('${id}', ${item.qty - 1})" style="padding: 0.2rem 0.5rem; background: var(--border); border: none; cursor: pointer; border-radius: 3px;">−</button>
+                <input type="number" value="${item.qty}" onchange="updateQty('${id}', parseInt(this.value))" style="width: 45px; text-align: center; padding: 0.4rem; border: 1px solid var(--border); border-radius: 3px;">
+                <button onclick="updateQty('${id}', ${item.qty + 1})" style="padding: 0.2rem 0.5rem; background: var(--border); border: none; cursor: pointer; border-radius: 3px;">+</button>
+              </div>
+            </div>
+            <div>
+              <div class="cart-item-total">$${itemTotal}</div>
+              <button class="cart-item-remove" onclick="removeFromCart('${id}')">🗑️</button>
+            </div>
+          </div>
+        `;
+      });
+      cartItems.innerHTML = html;
+      cartTotal.textContent = '$' + getCartTotal();
+    }
+
+    function showNotification(msg) {
+      const notif = document.createElement('div');
+      notif.textContent = msg;
+      notif.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: var(--success);
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 6px;
+        box-shadow: var(--shadow-lg);
+        z-index: 2000;
+        animation: slideIn 0.3s ease;
+      `;
+      document.body.appendChild(notif);
+      setTimeout(() => notif.remove(), 3000);
+    }
+
+    // Price formatting helper
+    window.formatPrice = (price) => '$' + Number(price).toFixed(2);
+
+    // Initialize
+    renderCart();
+
+    // Close cart when overlay clicked
+    document.getElementById('cartOverlay').addEventListener('click', closeCart);
+  </script>
+
+  <style>
+    @keyframes slideIn {
+      from { transform: translateX(400px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+  </style>
+</body>
+</html>
