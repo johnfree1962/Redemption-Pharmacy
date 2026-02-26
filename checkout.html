@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - Redemption Pharmacy</title>
+  <meta name="description" content="Secure checkout at Redemption Pharmacy. Fast delivery, multiple payment options.">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="index.html" class="navbar-brand">
+        <div class="navbar-brand-icon">Rx</div>
+        Redemption Pharmacy
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="pharmacy.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a class="btn btn-primary btn-small" href="javascript:void(0)" onclick="openCart()">🛒 Cart</a></li>
+      </ul>
+      <div class="hamburger" onclick="toggleNav()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <section style="background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 2rem 1.5rem; text-align: center;">
+    <div class="container">
+      <h1 style="color: white; margin-bottom: 0.5rem;">Secure Checkout</h1>
+      <p style="color: rgba(255, 255, 255, 0.95);">Complete your order in 3 simple steps</p>
+    </div>
+  </section>
+
+  <!-- PROGRESS BAR -->
+  <div style="background: var(--light); padding: 1.5rem 0; border-bottom: 1px solid var(--border);">
+    <div class="container">
+      <div style="display: flex; gap: 1rem; align-items: center; justify-content: center;">
+        <div style="text-align: center; flex: 1;">
+          <div style="width: 30px; height: 30px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.5rem; font-weight: bold;">✓</div>
+          <p style="font-size: 0.9rem; margin: 0;">Review Order</p>
+        </div>
+        <div style="width: 2rem; height: 2px; background: var(--border);"></div>
+        <div style="text-align: center; flex: 1;">
+          <div style="width: 30px; height: 30px; background: var(--border); color: var(--gray); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.5rem; font-weight: bold;">2</div>
+          <p style="font-size: 0.9rem; margin: 0;">Delivery & Billing</p>
+        </div>
+        <div style="width: 2rem; height: 2px; background: var(--border);"></div>
+        <div style="text-align: center; flex: 1;">
+          <div style="width: 30px; height: 30px; background: var(--border); color: var(--gray); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.5rem; font-weight: bold;">3</div>
+          <p style="font-size: 0.9rem; margin: 0;">Payment</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <section class="section">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr 380px; gap: 2rem; margin-bottom: 2rem;">
+        <!-- ORDER FORM -->
+        <div>
+          <h2>Order Summary</h2>
+          <div id="orderItems" class="card" style="margin-bottom: 2rem;">
+            <!-- Items will be populated by JS -->
+          </div>
+
+          <h2 style="margin-top: 2rem;">Delivery Address</h2>
+          <form id="deliveryForm" class="card" style="padding: 2rem;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div class="form-group">
+                <label class="form-label">First Name *</label>
+                <input type="text" id="firstName" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Last Name *</label>
+                <input type="text" id="lastName" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Phone Number *</label>
+              <input type="tel" id="phone" placeholder="+231-XXX-XXXX" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Email Address *</label>
+              <input type="email" id="email" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Street Address *</label>
+              <input type="text" id="address" placeholder="123 Medical Avenue" required>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1rem;">
+              <div class="form-group">
+                <label class="form-label">City *</label>
+                <input type="text" id="city" placeholder="Monrovia" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Postal Code</label>
+                <input type="text" id="postalCode">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">District *</label>
+              <select id="district" required>
+                <option value="">Select District</option>
+                <option value="sinkor">Sinkor</option>
+                <option value="congo-town">Congo Town</option>
+                <option value="new-kru-town">New Kru Town</option>
+                <option value="todee">Todee</option>
+                <option value="clara-town">Clara Town</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Delivery Instructions (Optional)</label>
+              <textarea id="instructions" placeholder="e.g., Ring doorbell twice, leave at side gate, etc."></textarea>
+            </div>
+
+            <label style="display: flex; gap: 0.75rem; align-items: flex-start; cursor: pointer;">
+              <input type="checkbox" id="sameAddress" style="width: auto; margin: 0; margin-top: 0.35rem;">
+              <span>Billing address same as delivery address</span>
+            </label>
+          </form>
+
+          <!-- BILLING ADDRESS (Hidden by default) -->
+          <div id="billingSection" style="display: none;">
+            <h2 style="margin-top: 2rem;">Billing Address</h2>
+            <form id="billingForm" class="card" style="padding: 2rem;">
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div class="form-group">
+                  <label class="form-label">First Name *</label>
+                  <input type="text" id="billingFirstName" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Last Name *</label>
+                  <input type="text" id="billingLastName" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Street Address *</label>
+                <input type="text" id="billingAddress" required>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1rem;">
+                <div class="form-group">
+                  <label class="form-label">City *</label>
+                  <input type="text" id="billingCity" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Postal Code</label>
+                  <input type="text" id="billingPostalCode">
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <h2 style="margin-top: 2rem;">Delivery Method</h2>
+          <div class="card" style="padding: 1.5rem 0;">
+            <label style="display: flex; gap: 1rem; padding: 1rem 1.5rem; cursor: pointer; border-bottom: 1px solid var(--border);">
+              <input type="radio" name="delivery" value="standard" checked style="width: auto; margin: 0; margin-top: 0.25rem;">
+              <div style="flex: 1;">
+                <strong>Standard Delivery</strong>
+                <p style="font-size: 0.9rem; color: var(--gray); margin: 0;">2-3 business days • Free</p>
+              </div>
+              <div style="color: var(--primary); font-weight: 600;">Free</div>
+            </label>
+            <label style="display: flex; gap: 1rem; padding: 1rem 1.5rem; cursor: pointer;">
+              <input type="radio" name="delivery" value="express" style="width: auto; margin: 0; margin-top: 0.25rem;">
+              <div style="flex: 1;">
+                <strong>Express Delivery</strong>
+                <p style="font-size: 0.9rem; color: var(--gray); margin: 0;">Same-day or next-day delivery</p>
+              </div>
+              <div style="color: var(--primary); font-weight: 600;">+$5.00</div>
+            </label>
+          </div>
+
+          <h2 style="margin-top: 2rem;">Payment Method</h2>
+          <div class="card" style="padding: 1.5rem 0;">
+            <label style="display: flex; gap: 1rem; padding: 1rem 1.5rem; cursor: pointer; border-bottom: 1px solid var(--border);">
+              <input type="radio" name="payment" value="card" checked style="width: auto; margin: 0; margin-top: 0.25rem;">
+              <div style="flex: 1;">
+                <strong>💳 Credit/Debit Card</strong>
+                <p style="font-size: 0.9rem; color: var(--gray); margin: 0;">Visa, MasterCard, American Express</p>
+              </div>
+            </label>
+            <label style="display: flex; gap: 1rem; padding: 1rem 1.5rem; cursor: pointer; border-bottom: 1px solid var(--border);">
+              <input type="radio" name="payment" value="mobile" style="width: auto; margin: 0; margin-top: 0.25rem;">
+              <div style="flex: 1;">
+                <strong>📱 Mobile Money</strong>
+                <p style="font-size: 0.9rem; color: var(--gray); margin: 0;">MTN, Lonestar Cell</p>
+              </div>
+            </label>
+            <label style="display: flex; gap: 1rem; padding: 1rem 1.5rem; cursor: pointer;">
+              <input type="radio" name="payment" value="cash" style="width: auto; margin: 0; margin-top: 0.25rem;">
+              <div style="flex: 1;">
+                <strong>💵 Cash on Delivery</strong>
+                <p style="font-size: 0.9rem; color: var(--gray); margin: 0;">Pay when your order arrives</p>
+              </div>
+            </label>
+          </div>
+
+          <!-- CARD DETAILS (shown when card is selected) -->
+          <div id="cardDetails" style="margin-top: 2rem;">
+            <h2>Card Details</h2>
+            <form class="card" style="padding: 2rem;">
+              <div class="form-group">
+                <label class="form-label">Cardholder Name *</label>
+                <input type="text" id="cardName" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Card Number *</label>
+                <input type="text" id="cardNumber" placeholder="4242 4242 4242 4242" pattern="\d{4} \d{4} \d{4} \d{4}" required>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1rem;">
+                <div class="form-group">
+                  <label class="form-label">Expiration Date (MM/YY) *</label>
+                  <input type="text" id="cardExpiry" placeholder="12/25" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">CVV *</label>
+                  <input type="text" id="cardCvv" placeholder="123" pattern="\d{3,4}" required>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div style="margin-top: 2rem;">
+            <label style="display: flex; gap: 0.75rem; align-items: flex-start; cursor: pointer;">
+              <input type="checkbox" id="agreeTerms" style="width: auto; margin: 0; margin-top: 0.35rem;" required>
+              <span>I agree to the <a href="#" style="color: var(--primary); text-decoration: none;">Terms & Conditions</a> and <a href="#" style="color: var(--primary); text-decoration: none;">Privacy Policy</a></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- ORDER SUMMARY SIDEBAR -->
+        <div>
+          <div class="card" style="position: sticky; top: 100px;">
+            <h3 style="margin-bottom: 1.5rem;">Order Summary</h3>
+            <div id="summaryItems" style="margin-bottom: 1.5rem;">
+              <!-- Items will be populated by JS -->
+            </div>
+            <div style="border-top: 1px solid var(--border); padding-top: 1rem;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span>Subtotal:</span>
+                <span id="subtotal">$0.00</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span>Delivery:</span>
+                <span id="deliveryFee">Free</span>
+              </div>
+              <div style="border-top: 1px solid var(--border); padding-top: 1rem; display: flex; justify-content: space-between; font-size: 1.25rem; font-weight: 700;">
+                <span>Total:</span>
+                <span id="totalPrice" class="text-primary">$0.00</span>
+              </div>
+            </div>
+            <button class="btn btn-primary" style="width: 100%; margin-top: 1.5rem; padding: 0.75rem 1rem; font-size: 1rem;" onclick="placeOrder()">Place Order</button>
+            <a href="pharmacy.html" class="btn btn-outline" style="width: 100%; margin-top: 0.5rem; padding: 0.75rem 1rem;">Continue Shopping</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>About Redemption</h4>
+        <p>Redemption Pharmacy is committed to providing quality medicines and healthcare products with professional service.</p>
+        <p class="license-info">📋 License #: RXP-2024-001<br>Registered with National Health Authority</p>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="pharmacy.html">Shop Medicines</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="pharmacy.html?cat=pain-relief">Pain Relief</a></li>
+          <li><a href="pharmacy.html?cat=cold-cough">Cold & Cough</a></li>
+          <li><a href="pharmacy.html?cat=antibiotics">Antibiotics</a></li>
+          <li><a href="pharmacy.html?cat=supplements">Supplements</a></li>
+          <li><a href="pharmacy.html?cat=skincare">Skincare</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Refund Policy</a></li>
+          <li><a href="#">Shipping Policy</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Redemption Pharmacy. All rights reserved.</p>
+      <p>This website is for informational purposes only. Always consult with a licensed pharmacist or healthcare provider.</p>
+    </div>
+  </footer>
+
+  <!-- CART SIDEBAR -->
+  <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+  <aside id="cart" class="cart-sidebar">
+    <div class="cart-header">
+      <h3>Shopping Cart</h3>
+      <button onclick="closeCart()">×</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty">Your cart is empty</div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span class="cart-total-label">Total:</span>
+        <span class="cart-total-amount">$0.00</span>
+      </div>
+      <a href="checkout.html" class="btn btn-primary">Proceed to Checkout</a>
+      <button class="btn btn-outline" onclick="clearCart()" style="width: 100%; margin-top: 0.5rem;">Clear Cart</button>
+    </div>
+  </aside>
+
+  <script>
+    // Mobile menu
+    function toggleNav() {
+      const navLinks = document.getElementById('navLinks');
+      navLinks.classList.toggle('active');
+    }
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('navLinks').classList.remove('active');
+      });
+    });
+
+    // Cart state
+    const CART_KEY = 'pharmacyCart-v2';
+    let cart = JSON.parse(localStorage.getItem(CART_KEY) || '{}');
+
+    if (Object.keys(cart).length === 0) {
+      document.body.innerHTML += '<div style="text-align: center; padding: 3rem;"><h2>Your cart is empty</h2><p>Add items to your cart first.</p><a href="pharmacy.html" class="btn btn-primary" style="margin-top: 1rem;">Go Shopping</a></div>';
+      throw new Error('Empty cart');
+    }
+
+    function saveCart() {
+      localStorage.setItem(CART_KEY, JSON.stringify(cart));
+      renderSummary();
+    }
+
+    function getCartTotal() {
+      return Object.values(cart).reduce((sum, item) => sum + (item.price * item.qty), 0).toFixed(2);
+    }
+
+    function renderOrderItems() {
+      const items = document.getElementById('orderItems');
+      let html = '';
+      Object.entries(cart).forEach(([id, item]) => {
+        const itemTotal = (item.price * item.qty).toFixed(2);
+        html += `
+          <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid var(--border);">
+            <div>
+              <p style="font-weight: 600; margin: 0; margin-bottom: 0.25rem;">${item.name}</p>
+              <p style="font-size: 0.9rem; color: var(--gray); margin: 0;">$${item.price.toFixed(2)} × ${item.qty}</p>
+            </div>
+            <p style="font-weight: 600; margin: 0;">$${itemTotal}</p>
+          </div>
+        `;
+      });
+      items.innerHTML = html;
+    }
+
+    function renderSummary() {
+      const summary = document.getElementById('summaryItems');
+      const subtotal = document.getElementById('subtotal');
+      const delivery = document.getElementById('deliveryFee');
+      const total = document.getElementById('totalPrice');
+
+      let html = '';
+      let sum = 0;
+      Object.entries(cart).forEach(([id, item]) => {
+        const itemTotal = (item.price * item.qty);
+        sum += itemTotal;
+        html += `<div style="display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 0.5rem;"><span>${item.name} ×${item.qty}</span><span>$${itemTotal.toFixed(2)}</span></div>`;
+      });
+      summary.innerHTML = html;
+      subtotal.textContent = '$' + sum.toFixed(2);
+
+      const deliveryMethod = document.querySelector('input[name="delivery"]:checked').value;
+      const deliveryPrice = deliveryMethod === 'express' ? 5.00 : 0;
+      delivery.textContent = deliveryPrice === 0 ? 'Free' : '$' + deliveryPrice.toFixed(2);
+
+      const totalPrice = (sum + deliveryPrice).toFixed(2);
+      total.textContent = '$' + totalPrice;
+    }
+
+    function openCart() {
+      document.getElementById('cart').classList.add('open');
+      document.getElementById('cartOverlay').classList.add('active');
+    }
+
+    function closeCart() {
+      document.getElementById('cart').classList.remove('open');
+      document.getElementById('cartOverlay').classList.remove('active');
+    }
+
+    function clearCart() {
+      if (confirm('Clear entire cart?')) {
+        cart = {};
+        saveCart();
+        localStorage.removeItem(CART_KEY);
+        window.location.href = 'pharmacy.html';
+      }
+    }
+
+    function renderCart() {
+      const cartItems = document.getElementById('cartItems');
+      const cartTotal = document.querySelector('.cart-total-amount');
+
+      if (Object.keys(cart).length === 0) {
+        cartItems.innerHTML = '<div class="cart-empty">Your cart is empty</div>';
+        return;
+      }
+
+      let html = '';
+      Object.entries(cart).forEach(([id, item]) => {
+        const itemTotal = (item.price * item.qty).toFixed(2);
+        html += `
+          <div class="cart-item">
+            <div class="cart-item-info">
+              <div class="cart-item-name">${item.name}</div>
+              <div class="cart-item-price">$${item.price.toFixed(2)} each</div>
+            </div>
+            <div>
+              <div class="cart-item-total">$${itemTotal}</div>
+            </div>
+          </div>
+        `;
+      });
+      cartItems.innerHTML = html;
+      cartTotal.textContent = '$' + getCartTotal();
+    }
+
+    // Billing address toggle
+    document.getElementById('sameAddress').addEventListener('change', (e) => {
+      document.getElementById('billingSection').style.display = e.target.checked ? 'none' : 'block';
+    });
+
+    // Payment method change
+    document.querySelectorAll('input[name="payment"]').forEach(input => {
+      input.addEventListener('change', () => {
+        document.getElementById('cardDetails').style.display = input.value === 'card' ? 'block' : 'none';
+      });
+    });
+
+    // Delivery method change
+    document.querySelectorAll('input[name="delivery"]').forEach(input => {
+      input.addEventListener('change', renderSummary);
+    });
+
+    function placeOrder() {
+      if (!document.getElementById('agreeTerms').checked) {
+        alert('Please agree to the terms and conditions');
+        return;
+      }
+
+      const firstName = document.getElementById('firstName').value;
+      const lastName = document.getElementById('lastName').value;
+      const phone = document.getElementById('phone').value;
+      const email = document.getElementById('email').value;
+      const address = document.getElementById('address').value;
+      const city = document.getElementById('city').value;
+      const district = document.getElementById('district').value;
+
+      if (!firstName || !lastName || !phone || !email || !address || !city || !district) {
+        alert('Please fill in all required fields');
+        return;
+      }
+
+      const paymentMethod = document.querySelector('input[name="payment"]:checked').value;
+      if (paymentMethod === 'card') {
+        const cardName = document.getElementById('cardName').value;
+        const cardNumber = document.getElementById('cardNumber').value;
+        const cardExpiry = document.getElementById('cardExpiry').value;
+        const cardCvv = document.getElementById('cardCvv').value;
+
+        if (!cardName || !cardNumber || !cardExpiry || !cardCvv) {
+          alert('Please fill in all card details');
+          return;
+        }
+      }
+
+      // In a real application, this would submit to a server
+      alert('✓ Order placed successfully!\n\nOrder #' + Math.random().toString(36).substr(2, 9).toUpperCase() + '\n\nDelivery to: ' + address + ', ' + city + '\n\nYou will receive a confirmation email at ' + email);
+      
+      // Clear cart and redirect
+      localStorage.removeItem(CART_KEY);
+      window.location.href = 'index.html';
+    }
+
+    // Initialize
+    renderOrderItems();
+    renderSummary();
+    renderCart();
+  </script>
+
+  <style>
+    @media (max-width: 768px) {
+      [style*="grid-template-columns: 1fr 380px"] {
+        grid-template-columns: 1fr !important;
+      }
+    }
+  </style>
+</body>
+</html>
